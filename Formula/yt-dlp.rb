@@ -25,7 +25,7 @@ class YtDlp < Formula
   end
 
   depends_on "certifi"
-  depends_on "troyxmccalllegacy-intel/deno"
+  depends_on "troyxmccall/legacy-intel/deno"
   depends_on "python@3.14"
 
   pypi_packages package_name:     "yt-dlp[default]",

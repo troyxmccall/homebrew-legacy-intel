@@ -20,7 +20,7 @@ class AwsCrtCpp < Formula
   depends_on "aws-c-cal"
   depends_on "aws-c-common"
   depends_on "aws-c-event-stream"
-  depends_on "troyxmccalllegacy-intel/aws-c-http"
+  depends_on "troyxmccall/legacy-intel/aws-c-http"
   depends_on "aws-c-io"
   depends_on "aws-c-mqtt"
   depends_on "aws-c-s3"

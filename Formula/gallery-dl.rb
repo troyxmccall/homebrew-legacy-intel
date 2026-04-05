@@ -22,7 +22,7 @@ class GalleryDl < Formula
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
   depends_on "python@3.14"
-  depends_on "troyxmccalllegacy-intel/yt-dlp" => :no_linkage
+  depends_on "troyxmccall/legacy-intel/yt-dlp" => :no_linkage
 
   pypi_packages package_name:     "gallery-dl[extra]",
                 exclude_packages: %w[certifi cryptography yt-dlp],

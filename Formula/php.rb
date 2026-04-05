@@ -83,7 +83,7 @@ class Php < Formula
   uses_from_macos "libxslt"
 
   on_macos do
-    depends_on "troyxmccalllegacy-intel/gettext"
+    depends_on "troyxmccall/legacy-intel/gettext"
   end
 
   on_linux do

@@ -19,7 +19,7 @@ class Aom < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "jpeg-xl"
-  depends_on "troyxmccalllegacy-intel/libvmaf"
+  depends_on "troyxmccall/legacy-intel/libvmaf"
 
   on_intel do
     depends_on "yasm" => :build
