@@ -1,6 +1,6 @@
 # Homebrew Legacy Intel
 This tap carries forked Homebrew formulae that I (personally) need to keep working on
-legacy amd64 Intel Macs.
+legacy x86-64 Intel Macs.
 
 The main reason this tap exists is compiler drift. Newer Homebrew formulae
 increasingly assume newer Apple Clang/Xcode toolchains than older Intel
