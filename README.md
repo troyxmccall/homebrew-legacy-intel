@@ -42,12 +42,17 @@ brew tap troyxmccall/legacy-intel
 brew install <formula>
 ```
 
-Examples:
+Per-formula installs:
 
 ```bash
+brew install troyxmccall/legacy-intel/gcc
+brew install troyxmccall/legacy-intel/gettext
 brew install troyxmccall/legacy-intel/php
 brew install troyxmccall/legacy-intel/node
-brew install troyxmccall/legacy-intel/gcc
+brew install troyxmccall/legacy-intel/deno
+brew install troyxmccall/legacy-intel/handbrake
+brew install troyxmccall/legacy-intel/yt-dlp
+brew install troyxmccall/legacy-intel/gallery-dl
 ```
 
 Or in a `Brewfile`:
