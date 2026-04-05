@@ -19,7 +19,7 @@ formula that either:
   Xcode requirements from core.
 - `gettext` carries the extra include/library flags needed by our local PHP
   stack and older Intel toolchains.
-- `php` depends on `troyxmccalllegacy-intel/gettext` instead of core `gettext`.
+- `php` depends on `troyxmccall/legacy-intel/gettext` instead of core `gettext`.
 - `yt-dlp` and `gallery-dl` are wired to other local formulae in this tap so
   the patched dependency chain stays consistent.
 - `gcc` is vendored here so I can install and patch a local GCC formula
@@ -56,5 +56,3 @@ Or in a `Brewfile`:
 tap "troyxmccall/legacy-intel"
 brew "troyxmccall/legacy-intel/<formula>"
 ```
-
-See `brew help`, `man brew`, or <https://docs.brew.sh>.
