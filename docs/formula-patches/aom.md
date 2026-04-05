@@ -10,6 +10,10 @@
 - Using the local `libvmaf` fork keeps downstream multimedia builds on the same
   formula set.
 
-## Effective diff
+## Patch
 
-- `depends_on "libvmaf"` -> `depends_on "troyxmccall/legacy-intel/libvmaf"`
+```diff
+@@
+-  depends_on "libvmaf"
++  depends_on "troyxmccall/legacy-intel/libvmaf"
+```

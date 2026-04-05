@@ -13,7 +13,13 @@
 - The revision bump distinguishes the local rebuild from the matching core
   formula revision.
 
-## Effective diff
+## Patch
 
-- `depends_on "deno"` -> `depends_on "troyxmccall/legacy-intel/deno"`
-- `revision 1` -> `revision 2`
+```diff
+@@
+-  revision 1
++  revision 2
+@@
+-  depends_on "deno"
++  depends_on "troyxmccall/legacy-intel/deno"
+```

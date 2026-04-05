@@ -10,6 +10,10 @@
 - It avoids mixing one local fork with a core dependency when we need to patch
   lower layers later.
 
-## Effective diff
+## Patch
 
-- `depends_on "aws-c-http"` -> `depends_on "troyxmccall/legacy-intel/aws-c-http"`
+```diff
+@@
+-  depends_on "aws-c-http"
++  depends_on "troyxmccall/legacy-intel/aws-c-http"
+```

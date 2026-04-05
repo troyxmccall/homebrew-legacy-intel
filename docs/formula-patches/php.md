@@ -10,6 +10,10 @@
 - This keeps the PHP build on the same dependency chain that carries the legacy
   Intel compatibility fixes.
 
-## Effective diff
+## Patch
 
-- `depends_on "gettext"` -> `depends_on "troyxmccall/legacy-intel/gettext"`
+```diff
+@@
+-    depends_on "gettext"
++    depends_on "troyxmccall/legacy-intel/gettext"
+```

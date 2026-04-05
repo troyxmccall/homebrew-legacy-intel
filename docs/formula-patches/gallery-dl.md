@@ -12,8 +12,18 @@
 - The platform split keeps the old macOS behavior explicit without changing the
   Linux path.
 
-## Effective diff
+## Patch
 
-- `depends_on "yt-dlp"` -> `depends_on "troyxmccall/legacy-intel/yt-dlp"`
-- `virtualenv_install_with_resources(without: ...)` changed to an explicit
-  Linux/macOS branch.
+```diff
+@@
+-  depends_on "yt-dlp" => :no_linkage
++  depends_on "troyxmccall/legacy-intel/yt-dlp" => :no_linkage
+@@
+-    without = %w[jeepney secretstorage] unless OS.linux?
+-    virtualenv_install_with_resources(without:)
++    if OS.linux?
++      virtualenv_install_with_resources
++    else
++      virtualenv_install_with_resources(without: %w[jeepney secretstorage])
++    end
+```

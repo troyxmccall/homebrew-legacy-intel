@@ -16,8 +16,16 @@
 - Using the unversioned formula name keeps installation aligned with normal
   Homebrew usage: `brew install troyxmccall/legacy-intel/gcc`.
 
-## Effective diff
+## Patch
 
-- `system "gmake", *make_args` -> `system "gmake", "MAKEINFO=true", *make_args`
-- `system "gmake", install_target, ...` -> `system "gmake", "MAKEINFO=true", install_target, ...`
-- Local fork is exposed as `gcc.rb`, not `gcc@15.2.0.rb`
+```diff
+@@
+-      system "gmake", *make_args
++      system "gmake", "MAKEINFO=true", *make_args
+@@
+-      system "gmake", install_target, "DESTDIR=#{Pathname.pwd}/../instdir"
++      system "gmake", "MAKEINFO=true", install_target, "DESTDIR=#{Pathname.pwd}/../instdir"
+```
+
+The local fork is published as `gcc.rb`, not `gcc@15.2.0.rb`, so it installs as
+`troyxmccall/legacy-intel/gcc`.

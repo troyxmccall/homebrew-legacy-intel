@@ -21,9 +21,35 @@
   paths that require unavailable APIs instead of trying to emulate full newer
   framework behavior.
 
-## Effective diff
+## Patch
 
-- Inject a Monterey compatibility stub for `rotate_vt.c`.
-- Remove the `replace_filter(... HB_FILTER_ROTATE_VT)` call on old macOS.
-- Add compatibility macro definitions for newer VideoToolbox constants.
-- Add a local `supportsHBMetal3Family` helper and swap call sites to use it.
+```diff
+@@
++    if OS.mac?
++      if MacOS.version <= :monterey
++        rm buildpath/"libhb/platform/macosx/rotate_vt.c"
++        (buildpath/"libhb/platform/macosx/rotate_vt.c").write <<~"EOS"
++          /* rotate_vt.c
++             Compatibility stub for SDKs older than macOS 13 where VTPixelRotationSession APIs do not exist.
++           */
++          ...
++        EOS
++        inreplace "libhb/platform/macosx/vt_common.c",
++                  "        replace_filter(job, HB_FILTER_ROTATE, HB_FILTER_ROTATE_VT);\n",
++                  ""
++      else
++        inreplace "libhb/platform/macosx/rotate_vt.c" do |s|
++          ...
++        end
++      end
++      inreplace "libhb/platform/macosx/encvt.c" do |s|
++        ...
++      end
++      inreplace ["libhb/platform/macosx/comb_detect_vt.m", "libhb/platform/macosx/motion_metric_vt.m"] do |s|
++        s.gsub!(/supportsFamily:MTLGPUFamilyMetal3/, "supportsHBMetal3Family")
++      end
++    end
+```
+
+The actual patch is large; this excerpt shows the compatibility block that was
+added around the newer macOS VideoToolbox and Metal APIs.

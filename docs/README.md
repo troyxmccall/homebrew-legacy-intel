@@ -19,3 +19,7 @@ formula is copied here but has no local diff, it is listed in
 - [`node.md`](./formula-patches/node.md)
 - [`php.md`](./formula-patches/php.md)
 - [`yt-dlp.md`](./formula-patches/yt-dlp.md)
+
+## Unchanged vendored formulae
+
+- [`unchanged-forks.md`](./unchanged-forks.md)

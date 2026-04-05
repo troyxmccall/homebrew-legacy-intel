@@ -13,8 +13,12 @@
 - The formula also carries the upstream-style Clang workaround already present
   in core.
 
-## Effective diff
+## Patch
 
-- `depends_on "json-c"` added.
-- `ENV.append_to_cflags "-I#{Formula["json-c"].opt_include}/json-c"` added.
-- `ENV.append "LDFLAGS", "-L#{Formula["json-c"].opt_lib}"` added.
+```diff
+@@
++  depends_on "json-c"
+@@
++    ENV.append_to_cflags "-I#{Formula["json-c"].opt_include}/json-c"
++    ENV.append "LDFLAGS", "-L#{Formula["json-c"].opt_lib}"
+```
