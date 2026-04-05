@@ -20,8 +20,8 @@ formula that either:
 - `gettext` carries the extra include/library flags needed by our local PHP
   stack and older Intel toolchains.
 - `php` depends on `troyxmccalllegacy-intel/gettext` instead of core `gettext`.
-- `yt-dlp`, `gallery-dl`, `aom`, and `aws-crt-cpp` are wired to other local
-  formulae in this tap so the patched dependency chain stays consistent.
+- `yt-dlp` and `gallery-dl` are wired to other local formulae in this tap so
+  the patched dependency chain stays consistent.
 - `gcc` is vendored here so I can install and patch a local GCC formula
   without waiting on core changes.
 
