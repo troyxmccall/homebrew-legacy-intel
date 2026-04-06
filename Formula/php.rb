@@ -83,7 +83,7 @@ class Php < Formula
   uses_from_macos "libxslt"
 
   on_macos do
-    depends_on "troyxmccall/legacy-intel/gettext"
+    depends_on "gettext"
   end
 
   on_linux do
@@ -129,6 +129,11 @@ class Php < Formula
 
     # Identify build provider in php -v output and phpinfo()
     ENV["PHP_BUILD_PROVIDER"] = tap.user
+    # Avoid pkg-config for libcurl. On legacy macOS, libcurl.pc may reference
+    # optional dependencies like librtmp that are not installed, causing
+    # configure to fail before it tests the actual curl headers and library.
+    ENV["CURL_CFLAGS"] = "-I#{Formula["curl"].opt_include}"
+    ENV["CURL_LIBS"] = "-L#{Formula["curl"].opt_lib} -lcurl"
 
     if OS.mac?
       sdk_path = MacOS.sdk_for_formula(self).path
